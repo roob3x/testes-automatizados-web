@@ -47,8 +47,10 @@ gerecao de evidencias a cada passo executado
     * Para utilizar os metodos da pagina nos steps, instancie a pagina deseja. por ex: HomePage homePage new HomePage(), e assim podera usar a funcao por ex: homePage.searchSubject() no step desejado;
     * Caso seus testes tenham mais de uma URL, centralize no arquivo src/test/java/constants/Url
     * Para manipular diferentes versoes de drivers ou navegadores, adicionar em src/test/java/common/drivers
+    * O Arquivo CustomData tem o intuito de centralizar as mensagens fixas ou outros parametros que deseja. caso tenha muitas constantes diferentes, é aconselhavel criar um Arquivo de constante para cada funcionalidade.
     * O arquivo ServiceHooks tem o intuito de executar acoes antes e depois dos cenarios. Tenha cautela caso necessite inserir algo para nao impactar outros cenarios.
     * A cada step executado, sera disparado o metodo takeScreenshot antes e depois do mesmo. e sera armazenada as evidencias em source/relatorios com a data de execucao
+    * Adicione ao gitignore arquivos desnecessarios para que nao polua o projeto
 
 
 ## Como executar o projeto
