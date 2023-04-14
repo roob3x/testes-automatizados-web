@@ -1,9 +1,8 @@
 package steps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
 import support.Driver;
+import utils.Screenshot;
 
 import java.net.MalformedURLException;
 
@@ -15,9 +14,19 @@ public class ServiceHooks {
         Driver.getDriver().get(MAIN_URL);
     }
 
+    @BeforeStep
+    public void beforeStep() {
+        Screenshot.takeScreenShot();
+    }
+
     @After
     public void tearDown() throws InterruptedException {
         Driver.endSession();
+    }
+
+    @AfterStep
+    public void afterStep() {
+        Screenshot.takeScreenShot();
     }
 
 }
