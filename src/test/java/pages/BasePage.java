@@ -28,35 +28,14 @@ public class BasePage {
         return wait;
     }
 
-    public void wait_element_visible(By locator) {
-        wait_for().until(ExpectedConditions.visibilityOfElementLocated(locator));
-    }
-
     public WebElement find(By locator) {
         WebElement element = wait_for().until(ExpectedConditions.elementToBeClickable(locator));
         return element;
     }
 
-
-    public String getText(By locator) {
-        logger.info("-- obtendo o texto do elemento " + locator);
-        return find(locator).getText();
-    }
-
     public String getTextByAttribute(By locator, String attribute) {
         logger.info("-- obtendo o texto do elemento " + locator + " atraves do atributo " + attribute);
         return find(locator).getAttribute(attribute);
-    }
-
-    public void moveToElement(By locator) {
-        wait_for().until(ExpectedConditions.elementToBeClickable(locator));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(find(locator)).perform();
-    }
-
-    public void moveToElementUsingJavascript(By locator) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView();", find(locator));
     }
 
     public void click(By locator) {

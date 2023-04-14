@@ -18,10 +18,6 @@ public class ResultsPage extends BasePage{
         super(driver);
     }
 
-    public void waitTitleAppear(){
-        wait_element_visible(TITLE_RESULT);
-    }
-
     public void validateTitleAndDescriptionExist() {
         Assert.assertEquals(getTextByAttribute(TITLE_NEWS, "innerText"), TITLE_NEWS_RESULT);
         Assert.assertEquals(getTextByAttribute(SUMMARY_NEWS, "innerText"), SUMMARY_RESULT);
