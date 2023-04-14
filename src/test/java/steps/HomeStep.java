@@ -18,4 +18,9 @@ public class HomeStep{
     public void queAcessoACategoria(String category) throws InterruptedException {
         homePage.chooseCategory(category);
     }
+
+    @Dado("que acesso a plataforma {string}")
+    public void queAcessoPlataforma(String platform) throws InterruptedException {
+        homePage.choosePlataform(platform);
+    }
 }

@@ -72,7 +72,6 @@ public class BasePage {
 
     public void handleWindow() {
         Set<String> janelas = driver.getWindowHandles();
-
         for (String janela : janelas) {
             if (!janela.equals(driver.getWindowHandle())) {
                 driver.switchTo().window(janela);

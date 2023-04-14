@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -21,6 +21,9 @@ public class HomePage extends BasePage{
     public static By CARREIRA_CATEGORY = By.xpath("//a[contains( text(), 'Sua carreira')]");
     public static By NOSSO_CANAL__CATEGORY = By.xpath("//a[contains( text(), 'Inscreva-se no nosso canal!')]");
     public static By INVESTIMENTO_CATEGORY = By.xpath("//a[contains( text(), 'Seus investimentos')]");
+    public static By FACEBOOK_PLATFORM = By.xpath("//li[@id = 'menu-item-24']//a");
+    public static By INSTAGRAM_PLATFORM = By.xpath("//li[@id = 'menu-item-26']//a");
+    public static By LINKEDIN_PLATFORM = By.xpath("//li[@id = 'menu-item-2696']//a");
 
     public void searchSubject(String text) throws InterruptedException {
         click(MAGNIFYING_GLASS_BTN);
@@ -28,7 +31,7 @@ public class HomePage extends BasePage{
         click(SEARCH_BTN);
     }
 
-    public void chooseCategory(String category){
+    public void chooseCategory(String category) {
         switch (category) {
             case "Institucional":
                 click(INSTITUCIONAL_CATEGORY);
@@ -55,6 +58,19 @@ public class HomePage extends BasePage{
                 click(INVESTIMENTO_CATEGORY);
                 break;
         }
+    }
 
+    public void choosePlataform(String plataform) {
+        switch (plataform) {
+            case "facebook":
+                click(FACEBOOK_PLATFORM);
+                break;
+            case "instagram":
+                click(INSTAGRAM_PLATFORM);
+                break;
+            case "linkedin":
+                click(LINKEDIN_PLATFORM);
+                break;
+        }
     }
 }
