@@ -6,12 +6,18 @@ import utils.Screenshot;
 
 import java.net.MalformedURLException;
 
+import static constants.Config.ENVIRONMENT;
 import static constants.Url.MAIN_URL;
 
 public class ServiceHooks {
     @Before
-    public void beforeScenario(Scenario scenario) throws InterruptedException {
-        Driver.getDriver().get(MAIN_URL);
+    public void beforeScenario(Scenario scenario) throws InterruptedException, MalformedURLException {
+        if (ENVIRONMENT.equals("browserstack")) {
+            Driver.createBrowserStack().get(MAIN_URL);
+        }
+        else {
+            Driver.getDriver().get(MAIN_URL);
+        }
     }
 
     @BeforeStep
