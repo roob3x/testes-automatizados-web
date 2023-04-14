@@ -28,6 +28,10 @@ public class BasePage {
         return wait;
     }
 
+    public void wait_element_visible(By locator) {
+        wait_for().until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
     public WebElement find(By locator) {
         WebElement element = wait_for().until(ExpectedConditions.elementToBeClickable(locator));
         return element;
@@ -45,6 +49,7 @@ public class BasePage {
     }
 
     public void moveToElement(By locator) {
+        wait_for().until(ExpectedConditions.elementToBeClickable(locator));
         Actions actions = new Actions(driver);
         actions.moveToElement(find(locator)).perform();
     }
