@@ -21,12 +21,14 @@ public class Driver {
     public static WebDriver getDriver() {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
-            if (Path.nomePc.contains("Mac")) {
+            if (Path.nomePc.contains("Linux")) {
                 System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_IOS);
+                System.out.println("==== LOADING macIOS DRIVER ====");
             }
             else {
                 System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
                 options.addArguments("--headless");
+                System.out.println("==== LOADING LINUX DRIVER ====");
             }
 
             options.addArguments("--disable-notifications");
