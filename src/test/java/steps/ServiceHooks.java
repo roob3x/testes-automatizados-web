@@ -12,6 +12,7 @@ import static constants.Url.MAIN_URL;
 public class ServiceHooks {
     @Before
     public void beforeScenario(Scenario scenario) throws InterruptedException, MalformedURLException {
+        Screenshot.scenario = scenario;
         if (ENVIRONMENT.equals("browserstack")) {
             Driver.createBrowserStack().get(MAIN_URL);
         }

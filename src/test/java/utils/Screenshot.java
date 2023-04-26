@@ -1,5 +1,6 @@
 package utils;
-import com.sun.javafx.util.Utils;
+
+import io.cucumber.java.Scenario;
 import io.cucumber.plugin.event.PickleStepTestStep;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
@@ -12,12 +13,13 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Screenshot extends Utils{
+public class Screenshot {
 
     static Log Logger = (Log) LogFactory.getLog(Screenshot.class);
     private static String path;
     private static SimpleDateFormat timestampEvidencia;
     public static SimpleDateFormat timeStampPasta;
+    public static Scenario scenario;
 
     private static PickleStepTestStep currentStep;
 
@@ -34,7 +36,7 @@ public class Screenshot extends Utils{
         Date date = new Date();
         File scrFile = (File)((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
         try{
-            FileUtils.copyFile(scrFile, new File(path + ""  + "/" + nomePasta + "/"
+            FileUtils.copyFile(scrFile, new File(path + scenario.getName().replace(" ", "_") + ""  + "/" + nomePasta + "/"
                     + "_" + timeStampPasta.format(date) + "/" + nomePrint + "_" + stepName + " "
                     + timestampEvidencia.format(date)+ ".png"));
         }
@@ -44,7 +46,7 @@ public class Screenshot extends Utils{
 
     }
     static {
-        path = "src" + File.separator + "test" + File.separator + "resources" + File.separator + "relatorios"
+        path = "target" + File.separator + "evidencias"
                 + File.separator + "screenshot" + File.separator;
         timestampEvidencia = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS");
         timeStampPasta = new SimpleDateFormat("yyMMdd");
