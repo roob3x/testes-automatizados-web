@@ -49,18 +49,19 @@ gerecao de evidencias a cada passo executado
     * Para manipular diferentes versoes de drivers ou navegadores, adicionar em src/test/java/common/drivers
     * O Arquivo CustomData tem o intuito de centralizar as mensagens fixas ou outros parametros que deseja. caso tenha muitas constantes diferentes, é aconselhavel criar um Arquivo de constante para cada funcionalidade.
     * O arquivo ServiceHooks tem o intuito de executar acoes antes e depois dos cenarios. Tenha cautela caso necessite inserir algo para nao impactar outros cenarios.
-    * A cada step executado, sera disparado o metodo takeScreenshot antes e depois do mesmo. e sera armazenada as evidencias em source/relatorios com a data de execucao
+    * A cada step executado, sera disparado o metodo takeScreenshot antes e depois do mesmo. e sera armazenada as evidencias em target/evidencia e separado
+      por cenarios e respectiva data de execucao
     * Adicione ao gitignore arquivos desnecessarios para que nao polua o projeto
 
 
 ## Como executar o projeto
 * execute no terminal na raiz do projeto:
-    * mvn test -Dcucumber.options="--tags @smoke"
+    * mvn test -Dtest=TestRunner cluecumber-report:reporting
 * Ou voce pode executar direto no arquivo TestRunner
-* Obs 1: O projeto esta apontando para o ambiente da nuvem com browserstack, caso queira rodar a automacao local, basta alterar ENVIRONMENT no arquivo config para local.
-    * PONTO DE ATENCAO: Ao alterar ENVIRONMENT para local, nao esqueca de voltar para env de browsertack caso precise atualizar algo no projeto.
-    * Para que nao precise alterar o ENVIROMENT voce pode executar o projeto via linha de comando no terminal:
-        * mvn clean test -Denv=browserstack
-        * mvn clean test -Denv=local
+* Obs 1: O projeto esta apontando para o ambiente local, a automacao vai verificar o host da maquina para selecionar o driver adequada do mac ou linux.
+* Para alterar a execucao para utilizar o browserstack, basta alterar ENVIRONMENT no arquivo config para browserstack.
 * Obs 2: a tag smoke é comum em todos os cenarios. para executar cenario especifico altere para a tag desejada.
     * No caso de execucao no arquivo TestRunner altear o parametro da tags.
+* O projeto esta configurado para execucao na pipeline em ambiente de teste controlado no github actions. voce pode acompanhar execucao,
+direto no github na sessao Actions.
+* O relatorio com o resultado da execucao estara disponivel no caminho target/formated-report/index.html

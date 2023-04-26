@@ -1,5 +1,6 @@
 package support;
 
+import constants.Path;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,15 +13,22 @@ import java.util.concurrent.TimeUnit;
 
 import static constants.Config.ACCESS_KEY;
 import static constants.Config.USERNAME;
-import static constants.Path.CHROME_DRIVER_PATH;
+import static constants.Path.*;
 import static constants.Url.URL_BROWSERSTACK;
 
 public class Driver {
     public static WebDriver driver;
     public static WebDriver getDriver() {
         if (driver == null) {
-            System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
             ChromeOptions options = new ChromeOptions();
+            if (Path.nomePc.contains("Mac")) {
+                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_IOS);
+            }
+            else {
+                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
+                options.addArguments("--headless");
+            }
+
             options.addArguments("--disable-notifications");
             options.addArguments("--remote-allow-origins=*");
             driver = new ChromeDriver(options);
