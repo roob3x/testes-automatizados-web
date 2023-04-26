@@ -31,6 +31,3 @@ jobs:
 
       - name: Run Tests
         run: mvn test -Dtest=TestRunner cluecumber-report:reporting
-
-
-          
