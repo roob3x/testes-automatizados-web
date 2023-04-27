@@ -58,10 +58,10 @@ gerecao de evidencias a cada passo executado
 * execute no terminal na raiz do projeto:
     * mvn test -Dtest=TestRunner cluecumber-report:reporting
 * Ou voce pode executar direto no arquivo TestRunner
-* Obs 1: O projeto esta apontando para o ambiente local, a automacao vai verificar o host da maquina para selecionar o driver adequada do mac ou linux.
-* Para alterar a execucao para utilizar o browserstack, basta alterar ENVIRONMENT no arquivo config para browserstack.
+* Obs 1: O projeto esta apontando para o ambiente browserstack, a automacao vai verificar o host da maquina para selecionar o driver adequada do mac ou linux.
+* Para ajustar a execucao basta alterar ENVIRONMENT no arquivo config para local.
 * Obs 2: a tag smoke é comum em todos os cenarios. para executar cenario especifico altere para a tag desejada.
-    * No caso de execucao no arquivo TestRunner altear o parametro da tags.
+    * No caso de execucao no arquivo TestRunner alterar o parametro da tags.
 * O projeto esta configurado para execucao na pipeline em ambiente de teste controlado no github actions. voce pode acompanhar execucao,
 direto no github na sessao Actions.
 * O relatorio com o resultado da execucao estara disponivel no caminho target/formated-report/index.html

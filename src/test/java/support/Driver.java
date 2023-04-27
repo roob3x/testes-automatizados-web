@@ -42,6 +42,7 @@ public class Driver {
 
     public static WebDriver createBrowserStack() throws MalformedURLException {
         if (driver == null) {
+            System.out.println("==== BROWSERSTACK LOADING ====");
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("browser", "Chrome");
             caps.setCapability("browser_version", "110.0");

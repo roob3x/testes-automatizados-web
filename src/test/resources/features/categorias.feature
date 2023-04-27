@@ -9,9 +9,9 @@ Funcionalidade: Consultar Categoria
     Exemplos:
       | categoria                     |
       | "Institucional"               |
-#      | "Produtos"                    |
-#      | "Serviços"                    |
-#      | "Sua segurança"               |
-#      | "Sua carreira"                |
-#      | "Inscreva-se no nosso canal!" |
-#      | "Seus investimentos"          |
+      | "Produtos"                    |
+      | "Serviços"                    |
+      | "Sua segurança"               |
+      | "Sua carreira"                |
+      | "Inscreva-se no nosso canal!" |
+      | "Seus investimentos"          |
