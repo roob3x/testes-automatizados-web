@@ -22,13 +22,13 @@ public class Driver {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             if (Path.nomePc.contains("Mac")) {
-                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_IOS);
                 System.out.println("==== LOADING macIOS DRIVER ====");
+                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_IOS);
             }
             else {
+                System.out.println("==== LOADING LINUX DRIVER ====");
                 System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
                 options.addArguments("--headless");
-                System.out.println("==== LOADING LINUX DRIVER ====");
             }
 
             options.addArguments("--disable-notifications");
