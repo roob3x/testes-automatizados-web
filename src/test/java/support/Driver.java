@@ -22,9 +22,11 @@ public class Driver {
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             if (Path.nomePc.contains("Mac")) {
+                System.out.println("==== LOADING macIOS DRIVER ====");
                 System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_IOS);
             }
             else {
+                System.out.println("==== LOADING LINUX DRIVER ====");
                 System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
                 options.addArguments("--headless");
             }
@@ -40,6 +42,7 @@ public class Driver {
 
     public static WebDriver createBrowserStack() throws MalformedURLException {
         if (driver == null) {
+            System.out.println("==== BROWSERSTACK LOADING ====");
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("browser", "Chrome");
             caps.setCapability("browser_version", "110.0");

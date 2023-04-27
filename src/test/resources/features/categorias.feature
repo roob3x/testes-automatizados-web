@@ -1,7 +1,7 @@
 #language: pt
 Funcionalidade: Consultar Categoria
 
-  @consulta_categorias @smoke
+  @consulta_categorias @teste
   Esquema do Cenario: Valido que ao selecionar categoria <categoria> sera carregada a pagina com categoria <categoria>
     Dado que acesso a categoria <categoria>
     Entao valido que sou direcionado para a pagina de categoria <categoria>
