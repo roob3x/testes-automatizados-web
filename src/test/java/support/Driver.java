@@ -4,6 +4,7 @@ import constants.Path;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -31,8 +32,9 @@ public class Driver {
                 options.addArguments("--headless");
             }
 
-            options.addArguments("--disable-notifications");
-            options.addArguments("--remote-allow-origins=*");
+//            options.addArguments("--disable-notifications");
+//            options.addArguments("--remote-allow-origins=*");
+            options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
