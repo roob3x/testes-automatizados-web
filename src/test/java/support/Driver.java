@@ -21,7 +21,7 @@ public class Driver {
     public static WebDriver driver;
     public static WebDriver getDriver() {
         if (driver == null) {
-            ChromeOptions options = new ChromeOptions();
+//            ChromeOptions options = new ChromeOptions();
             if (Path.nomePc.contains("Mac")) {
                 System.out.println("==== LOADING macIOS DRIVER ====");
 //                System.getProperty("webdriver.chrome.driver");
@@ -30,15 +30,17 @@ public class Driver {
             else {
                 System.out.println("==== LOADING LINUX DRIVER ====");
 //                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
+                ChromeOptions options = new ChromeOptions();
                 options.addArguments("--headless");
+                driver = new ChromeDriver(options);
             }
 
-            options.addArguments("--disable-notifications");
-            options.addArguments("--remote-allow-origins=*");
-            options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-            driver = new ChromeDriver(options);
+//            options.addArguments("--disable-notifications");
+//            options.addArguments("--remote-allow-origins=*");
+//            options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+//            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         }
         return driver;
     }
