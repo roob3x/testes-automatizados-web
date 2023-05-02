@@ -20,6 +20,10 @@ import static constants.Url.URL_BROWSERSTACK;
 public class Driver {
     public static WebDriver driver;
     public static WebDriver getDriver() {
+        if (driver !=  null) {
+            driver.quit();
+        }
+
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             if (Path.nomePc.contains("Mac")) {
