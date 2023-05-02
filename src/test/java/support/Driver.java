@@ -20,9 +20,6 @@ import static constants.Url.URL_BROWSERSTACK;
 public class Driver {
     public static WebDriver driver;
     public static WebDriver getDriver() {
-        if (driver !=  null) {
-            driver.quit();
-        }
 
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
@@ -38,7 +35,6 @@ public class Driver {
 
             options.addArguments("--disable-notifications");
             options.addArguments("--remote-allow-origins=*");
-//            options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
