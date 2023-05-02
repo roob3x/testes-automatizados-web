@@ -1,6 +1,7 @@
 package support;
 
 import constants.Path;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,11 +25,12 @@ public class Driver {
             ChromeOptions options = new ChromeOptions();
             if (Path.nomePc.contains("Mac")) {
                 System.out.println("==== LOADING macIOS DRIVER ====");
+//                System.getProperty("webdriver.chrome.driver");
                 System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_IOS);
             }
             else {
                 System.out.println("==== LOADING LINUX DRIVER ====");
-                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
+//                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
                 options.addArguments("--headless");
             }
 
