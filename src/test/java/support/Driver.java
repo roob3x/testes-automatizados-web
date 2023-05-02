@@ -32,8 +32,8 @@ public class Driver {
                 options.addArguments("--headless");
             }
 
-//            options.addArguments("--disable-notifications");
-//            options.addArguments("--remote-allow-origins=*");
+            options.addArguments("--disable-notifications");
+            options.addArguments("--remote-allow-origins=*");
             options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
