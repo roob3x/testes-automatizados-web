@@ -29,7 +29,7 @@ public class Driver {
             }
             else {
                 System.out.println("==== LOADING LINUX DRIVER ====");
-//                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
+                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_LINUX);
                 options.addArguments("--headless");
             }
 
