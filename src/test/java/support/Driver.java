@@ -4,6 +4,7 @@ import constants.Path;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -19,6 +20,7 @@ import static constants.Url.URL_BROWSERSTACK;
 public class Driver {
     public static WebDriver driver;
     public static WebDriver getDriver() {
+
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             if (Path.nomePc.contains("Mac")) {
